@@ -1,9 +1,0 @@
-{% extends 'main/base.html' %}
-{% block content %}
-<h3>註冊學生帳號</h3>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button class="btn btn-primary">註冊</button>
-</form>
-{% endblock %}
