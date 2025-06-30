@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% block title %}專題列表{% endblock %}
+{% block content %}
+<h3>{{ course.name }} - 專題列表</h3>
+<a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'create_project' course.id %}">上傳新專題</a>
+<div class="list-group">
+  {% for proj in projects %}
+    <a href="{% url 'project_detail' proj.id %}" class="list-group-item list-group-item-action">
+      <strong>{{ proj.title }}</strong> - {{ proj.author.username }}（{{ proj.upload_time|date:"Y-m-d" }}）
+    </a>
+  {% empty %}
+    <p>目前尚無上傳專題。</p>
+  {% endfor %}
+</div>
+{% endblock %}
